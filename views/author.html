@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h3>Stories by: </h3>
+<div>{{ author.name }}</div>
+<div><span>Email: &nbsp</span>{{ author.email }}</div>
+<ul>
+{% for page in authorPages %}
+</br>
+
+<li><a href="{{ page.route }}">{{ page.title }}</a></li>
+  {% endfor % }
+</ul>
+
+{% endblock %}

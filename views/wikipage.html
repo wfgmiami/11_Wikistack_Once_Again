@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <h3>{{ wikipage.title }}<small> (<a href="{{ wikipage.urlTitle }}/similar">click for similar stories</a>)</small></h3>
+  <h4>by <a href="/users/{{ wikipage.author.id }}">{{ wikipage.author.name }}</a></h4>
+  <div>&nbsp;</div>
+  <h5><i><b>Story Tags:</b></i></h5>
+  <div>{{ wikipage.tags }}</div>
+  <hr/>
+  <div>&nbsp;</div>
+  <h5><i><b>Story Author:</b></i></h5>
+  <div><a href="/users/{{ wikipage.author.id }}">{{ wikipage.author.name }}</a></div>
+  <div>&nbsp;</div>
+  <h5><i><b>Story Content:</b></i></h5>
+  <div class="page-body">
+    {% autoescape false %}
+    {{ wikipage.renderedContent }}
+    {% endautoescape %}
+  </div>
+  <hr/>
+  <a href="{{ wikipage.route }}/edit" class="btn btn-primary">edit this page</a>
+  <a href="{{ wikipage.route }}/delete" class="btn btn-danger">delete this page</a>
+{% endblock %}
